@@ -6,18 +6,21 @@ public class SmallestMissingPositive {
 
     public static void main(String[] args) {
 
-        int[] arr = {3,4,0,1,2};
-        //output = 2
-        smallestmissingpositive(arr);
+        int[] arr = {4,0,1,2};
+        //output = 3
+      smallestmissingpositive(arr);
 
     }
 
-    private static int smallestmissingpositive(int[] arr) {
-
+    private static void smallestmissingpositive(int[] arr) {
+        int missnumber = -1;
         Arrays.sort(arr);
-        for (int i = )
+        for (int i =0; i<arr.length ; i++){
+           if (arr[i] != i){
+               missnumber = i;
+           }
+        }
 
-
-        return 0;
+        System.out.println(missnumber);
     }
 }
