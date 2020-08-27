@@ -22,8 +22,18 @@ public class SubarrayZeroSum {
 
     public static boolean zeroSumSubArray(int[] arr){
 
-        Set<Integer> set = new HashSet;
+        Set<Integer> set = new HashSet();
         int sum = 0;
+        set.add(0);
 
+        for (int i = 0; i<arr.length;i++){
+            sum =+ arr[i];
+            if (set.contains(sum)){
+                return true;
+            }
+            set.add(sum);
+        }
+
+        return false;
     }
 }
