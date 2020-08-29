@@ -1,7 +1,6 @@
 package Array;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class SubarrayZeroSum {
 
@@ -18,22 +17,46 @@ public class SubarrayZeroSum {
             System.out.println("Subarrray do not exists");
         }
 
+        //printing sub arrays
+        printallSubarrays(arr);
+
     }
 
     public static boolean zeroSumSubArray(int[] arr){
+
+        //Time Complexity - O(n)
+        //Auxillary Space - O(n)
 
         Set<Integer> set = new HashSet();
         int sum = 0;
         set.add(0);
 
-        for (int i = 0; i<arr.length;i++){
-            sum =+ arr[i];
+        for (int i : arr){
+            sum += i;
             if (set.contains(sum)){
                 return true;
             }
             set.add(sum);
         }
-
         return false;
+    }
+
+    public static void printallSubarrays(int[] arr){
+
+        //the time complexity of this is O(n^3) as there are n^2 sub arrays and
+        // it takes O(n) time to find sum of elements...
+       for (int i = 0; i < arr.length; i++){
+
+           int sum = 0;
+
+           for (int j = i; j < arr.length ; j++) {
+
+               sum += arr[j];
+
+               if (sum == 0){
+                   System.out.println("Subarray [" + i +".."+ j +"]");
+               }
+           }
+       }
     }
 }
