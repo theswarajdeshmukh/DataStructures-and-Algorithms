@@ -97,7 +97,7 @@ public class SudokuSolver {
 
         for (int d = boxrow; d < boxrow + sqrt; d++) {
             for (int r = boxcol; r < boxcol + sqrt; r++) {
-                if (board[boxrow][boxcol] == num) {
+                if (board[d][r] == num) {
                     return false;
                 }
             }
