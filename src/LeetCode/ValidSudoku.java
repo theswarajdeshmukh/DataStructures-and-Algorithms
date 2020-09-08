@@ -1,4 +1,4 @@
-package Puzzles;
+package LeetCode;
 
 import java.util.HashSet;
 
