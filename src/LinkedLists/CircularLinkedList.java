@@ -79,7 +79,7 @@ public class CircularLinkedList {
             do {
                 temp = temp.next;
                 count++;
-            } while (temp != head)
+            } while (temp != head);
         }
         return count;
     }
