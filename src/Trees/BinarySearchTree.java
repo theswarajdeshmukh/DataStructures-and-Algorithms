@@ -103,6 +103,18 @@ class BST {
         else if (key > r.getData()) {
             r.right = deleteKey(r.getRight(), key);
         }
+        else {
+            if (r.left == null) {
+                return r.right;
+            }
+            else if (r.right == null) {
+                return r.left;
+            }
+            r.data = inorderSuccessor(r.getRight());
+
+            r.right = deleteKey(r.right, r.data);
+        }
+        return r;
     }
 
     int inorderSuccessor(BSTNode r) {
@@ -112,6 +124,41 @@ class BST {
             r = r.getLeft();
         }
         return rval;
+    }
+
+    public void inorder() {
+        inorder(root);
+    }
+    private void inorder(BSTNode r) {
+        if (r != null) {
+            inorder(r.getLeft());
+            System.out.println(r.getData() + " ");
+            inorder(r.getRight());
+
+        }
+    }
+
+    public void preorder() {
+        preorder(root);
+    }
+    private void preorder(BSTNode r) {
+        if (r != null) {
+            System.out.println(r.getData() + " ");
+            preorder(r.getLeft());
+            preorder(r.getRight());
+
+        }
+    }
+
+    public void postorder() {
+        postorder(root);
+    }
+    private void postorder(BSTNode r) {
+        if (r != null) {
+            postorder(r.getLeft());
+            postorder(r.getRight());
+            System.out.println(r.getData() + " ");
+        }
     }
 }
 
